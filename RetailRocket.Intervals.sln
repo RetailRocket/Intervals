@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetailRocket.Intervals", "RetailRocket.Intervals\RetailRocket.Intervals.csproj", "{5D6B617C-DBEF-4803-89CA-F9ABB6E1845B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetailRocket.Intervals.UnitTests", "RetailRocket.Intervals.UnitTests\RetailRocket.Intervals.UnitTests.csproj", "{8CED7CE8-C77B-4CBA-A352-4BD7168A31EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D6B617C-DBEF-4803-89CA-F9ABB6E1845B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D6B617C-DBEF-4803-89CA-F9ABB6E1845B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D6B617C-DBEF-4803-89CA-F9ABB6E1845B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D6B617C-DBEF-4803-89CA-F9ABB6E1845B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CED7CE8-C77B-4CBA-A352-4BD7168A31EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CED7CE8-C77B-4CBA-A352-4BD7168A31EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CED7CE8-C77B-4CBA-A352-4BD7168A31EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CED7CE8-C77B-4CBA-A352-4BD7168A31EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
