@@ -1,8 +1,7 @@
 namespace Interval.Boundaries.LowerBoundary
 {
-    using System.Collections.Generic;
-
-    public readonly struct LowerClosedBoundary<TPoint>
+    public readonly struct LowerClosedBoundary<TPoint> :
+        ILowerPointedBoundary<TPoint>
         where TPoint : notnull
     {
         public LowerClosedBoundary(

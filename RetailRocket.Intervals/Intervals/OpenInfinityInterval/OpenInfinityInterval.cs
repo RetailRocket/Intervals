@@ -1,11 +1,14 @@
 namespace Interval.Intervals.OpenInfinityInterval
 {
     using System;
-    using Interval.Boundaries.LowerBoundary;
-    using Interval.Boundaries.UpperBoundary;
+    using System.Collections.Generic;
+    using global::Interval.Boundaries.LowerBoundary;
+    using global::Interval.Boundaries.UpperBoundary;
 
-    public readonly struct OpenInfinityInterval<TPoint, TPointComparer>
+    public readonly struct OpenInfinityInterval<TPoint, TPointComparer> :
+        IBoundaryInterval<TPoint, TPointComparer>
         where TPoint : notnull
+        where TPointComparer : IComparer<TPoint>, new()
     {
         public OpenInfinityInterval(
             LowerOpenBoundary<TPoint> lowerBoundary)
@@ -16,6 +19,21 @@ namespace Interval.Intervals.OpenInfinityInterval
         public LowerOpenBoundary<TPoint> LowerBoundary { get; }
 
         public UpperInfinityBoundary<TPoint> UpperBoundary { get; }
+
+        public bool Contains(
+            TPoint point,
+            TPointComparer pointComparer)
+        {
+            return pointComparer.Compare(this.LowerBoundary.Point, point) > 0;
+        }
+
+        public List<TPoint> GetListOfBoundaryPoint()
+        {
+            return new List<TPoint>
+            {
+                this.LowerBoundary.Point,
+            };
+        }
 
         public override bool Equals(
             object? obj)

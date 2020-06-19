@@ -1,6 +1,7 @@
 namespace Interval.Boundaries.UpperBoundary
 {
-    public readonly struct UpperClosedBoundary<TPoint>
+    public readonly struct UpperClosedBoundary<TPoint> :
+        IUpperPointedBoundary<TPoint>
         where TPoint : notnull
     {
         public UpperClosedBoundary(

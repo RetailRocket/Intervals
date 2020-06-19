@@ -1,6 +1,7 @@
 namespace Interval.Boundaries.LowerBoundary
 {
-    public readonly struct LowerOpenBoundary<TPoint>
+    public readonly struct LowerOpenBoundary<TPoint> :
+        ILowerPointedBoundary<TPoint>
         where TPoint : notnull
     {
         public LowerOpenBoundary(

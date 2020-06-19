@@ -1,4 +1,7 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="C:\Users\User\.nuget\packages\oneof\2.1.151\lib\netstandard1.3\OneOf.dll" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=062e32f3_002Dcc4c_002D46ad_002Db959_002D65ac4e8450aa/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="IntersectWithClosedIntervalIsClosedInterval" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::8CED7CE8-C77B-4CBA-A352-4BD7168A31EC::.NETCoreApp,Version=v3.1::Interval.UnitTests.Operations.Intersect.InfinityIntervalTests.IntersectWithClosedIntervalIsClosedInterval&lt;/TestId&gt;&#xD;
@@ -10,6 +13,11 @@
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=721aba6d_002D6be7_002D4a5d_002D9b1a_002D08948fe3be12/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="InfinityIntervalTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::8CED7CE8-C77B-4CBA-A352-4BD7168A31EC::.NETCoreApp,Version=v3.1::Interval.UnitTests.Operations.Intersect.InfinityIntervalTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=756e4a54_002D01a1_002D465c_002D9aaa_002D1651471d5c97/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="InfinityIntervalTests #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::8CED7CE8-C77B-4CBA-A352-4BD7168A31EC::.NETCoreApp,Version=v3.1::Interval.UnitTests.Operations.Intersect.InfinityIntervalTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;

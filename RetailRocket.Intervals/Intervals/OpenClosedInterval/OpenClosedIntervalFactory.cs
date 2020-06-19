@@ -1,8 +1,8 @@
 namespace Interval.Intervals.OpenClosedInterval
 {
     using System.Collections.Generic;
-    using Interval.Boundaries.LowerBoundary;
-    using Interval.Boundaries.UpperBoundary;
+    using global::Interval.Boundaries.LowerBoundary;
+    using global::Interval.Boundaries.UpperBoundary;
     using Optional;
 
     public class OpenClosedIntervalFactory
@@ -12,7 +12,7 @@ namespace Interval.Intervals.OpenClosedInterval
             UpperClosedBoundary<TPoint> upperBoundary,
             TPointComparer pointComparer)
             where TPoint : notnull
-            where TPointComparer : IComparer<TPoint>
+            where TPointComparer : IComparer<TPoint>, new()
         {
             if (pointComparer.Compare(lowerBoundary.Point, upperBoundary.Point) > 0)
             {

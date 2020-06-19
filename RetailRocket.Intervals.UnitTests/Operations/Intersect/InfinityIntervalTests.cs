@@ -2,8 +2,9 @@ namespace Interval.UnitTests.Operations.Intersect
 {
     using Interval.Boundaries.LowerBoundary;
     using Interval.Boundaries.UpperBoundary;
-    using Interval.OneOfIntervals;
-    using Interval.OneOfIntervals.Operations;
+    using Interval.Intervals;
+    using Interval.Intervals.InfinityInterval;
+    using Interval.Intervals.Operations;
     using Xunit;
 
     public class InfinityIntervalTests
@@ -17,12 +18,12 @@ namespace Interval.UnitTests.Operations.Intersect
             int lowerBoundaryPoint,
             int upperBoundaryPoint)
         {
-            var leftInterval = OneOfIntervalsFactory.BuildClosedInterval(
+            var leftInterval = IntervalFactory.Build(
                 new LowerClosedBoundary<int>(lowerBoundaryPoint),
                 new UpperClosedBoundary<int>(upperBoundaryPoint),
                 pointComparer: new IntComparer());
 
-            var rightInterval = OneOfIntervalsFactory.BuildInfinityInterval<int, IntComparer>();
+            InfinityInterval<int, IntComparer> rightInterval = default;
 
             var intersection = leftInterval.Intersect(
                 rightInterval,
@@ -41,12 +42,12 @@ namespace Interval.UnitTests.Operations.Intersect
             int lowerBoundaryPoint,
             int upperBoundaryPoint)
         {
-            var leftInterval = OneOfIntervalsFactory.BuildOpenInterval(
+            var leftInterval = IntervalFactory.Build(
                 new LowerOpenBoundary<int>(lowerBoundaryPoint),
                 new UpperOpenBoundary<int>(upperBoundaryPoint),
                 pointComparer: new IntComparer());
 
-            var rightInterval = OneOfIntervalsFactory.BuildInfinityInterval<int, IntComparer>();
+            InfinityInterval<int, IntComparer> rightInterval = default;
 
             var intersection = leftInterval.Intersect(
                 rightInterval,

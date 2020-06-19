@@ -1,6 +1,8 @@
 namespace Interval.Boundaries.LowerBoundary
 {
-    public readonly struct LowerInfinityBoundary<TPoint>
+    public readonly struct LowerInfinityBoundary<TPoint> :
+        ILowerBoundary<TPoint>
+        where TPoint : notnull
     {
         public override bool Equals(
             object? obj)

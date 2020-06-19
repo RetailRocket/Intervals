@@ -2,15 +2,29 @@ namespace Interval.Intervals.InfinityInterval
 {
     using System;
     using System.Collections.Generic;
-    using Interval.Boundaries.LowerBoundary;
-    using Interval.Boundaries.UpperBoundary;
+    using global::Interval.Boundaries.LowerBoundary;
+    using global::Interval.Boundaries.UpperBoundary;
 
-    public readonly struct InfinityInterval<TPoint, TPointComparer>
+    public readonly struct InfinityInterval<TPoint, TPointComparer> :
+        IBoundaryInterval<TPoint, TPointComparer>
+        where TPoint : notnull
         where TPointComparer : IComparer<TPoint>, new()
     {
         public LowerInfinityBoundary<TPoint> LowerBoundary { get; }
 
         public UpperInfinityBoundary<TPoint> UpperBoundary { get; }
+
+        public bool Contains(
+            TPoint point,
+            TPointComparer pointComparer)
+        {
+            return true;
+        }
+
+        public List<TPoint> GetListOfBoundaryPoint()
+        {
+            return new List<TPoint> { };
+        }
 
         public override bool Equals(
             object? obj)

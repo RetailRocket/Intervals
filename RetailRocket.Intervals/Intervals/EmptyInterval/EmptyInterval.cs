@@ -1,9 +1,20 @@
 namespace Interval.Intervals.EmptyInterval
 {
     using System;
+    using System.Collections.Generic;
 
-    public class EmptyInterval<TPoint, TPointComparer>
+    public class EmptyInterval<TPoint, TPointComparer> :
+        IInterval<TPoint, TPointComparer>
+        where TPoint : notnull
+        where TPointComparer : IComparer<TPoint>, new()
     {
+        public bool Contains(
+            TPoint point,
+            TPointComparer pointComparer)
+        {
+            return false;
+        }
+
         public override bool Equals(
             object? obj)
         {
@@ -14,6 +25,11 @@ namespace Interval.Intervals.EmptyInterval
         {
             return this.GetType()
                 .GetHashCode();
+        }
+
+        public List<TPoint> GetListOfBoundaryPoint()
+        {
+            return new List<TPoint> { };
         }
     }
 }

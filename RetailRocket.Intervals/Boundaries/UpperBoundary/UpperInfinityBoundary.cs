@@ -1,6 +1,8 @@
 namespace Interval.Boundaries.UpperBoundary
 {
-    public readonly struct UpperInfinityBoundary<TPoint>
+    public readonly struct UpperInfinityBoundary<TPoint> :
+        IUpperBoundary<TPoint>
+        where TPoint : notnull
     {
         public override bool Equals(
             object? obj)

@@ -1,8 +1,8 @@
 namespace Interval.Intervals.ClosedOpenInterval
 {
     using System.Collections.Generic;
-    using Interval.Boundaries.LowerBoundary;
-    using Interval.Boundaries.UpperBoundary;
+    using global::Interval.Boundaries.LowerBoundary;
+    using global::Interval.Boundaries.UpperBoundary;
     using Optional;
 
     public class ClosedOpenIntervalFactory
