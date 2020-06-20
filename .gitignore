@@ -3,3 +3,9 @@
 /RetailRocket.Intervals.UnitTests/bin
 /RetailRocket.Intervals/bin
 /RetailRocket.Intervals/obj
+/RetailRocket.CenteredIntervalTree/obj
+/RetailRocket.CenteredIntervalTree/bin
+/RetailRocket.CenteredIntervalTree.UnitTests/bin
+/RetailRocket.CenteredIntervalTree.UnitTests/obj
+/RetailRocket.OneOf/obj
+/RetailRocket.OneOf/bin
