@@ -8,8 +8,8 @@ namespace Interval.Intervals.ClosedInterval
     public class ClosedIntervalFactory
     {
         public static Option<ClosedInterval<TPoint, TPointComparer>> Build<TPoint, TPointComparer>(
-            LowerClosedBoundary<TPoint> lowerBoundary,
-            UpperClosedBoundary<TPoint> upperBoundary,
+            LowerClosedBoundary<TPoint, TPointComparer> lowerBoundary,
+            UpperClosedBoundary<TPoint, TPointComparer> upperBoundary,
             TPointComparer pointComparer)
             where TPoint : notnull
             where TPointComparer : IComparer<TPoint>, new()

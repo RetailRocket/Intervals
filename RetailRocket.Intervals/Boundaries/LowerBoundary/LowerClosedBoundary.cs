@@ -1,8 +1,11 @@
 namespace Interval.Boundaries.LowerBoundary
 {
-    public readonly struct LowerClosedBoundary<TPoint> :
-        ILowerPointedBoundary<TPoint>
+    using System.Collections.Generic;
+
+    public readonly struct LowerClosedBoundary<TPoint, TPointComparer> :
+        ILowerPointedBoundary<TPoint, TPointComparer>
         where TPoint : notnull
+        where TPointComparer : IComparer<TPoint>, new()
     {
         public LowerClosedBoundary(
             TPoint point)
@@ -12,10 +15,17 @@ namespace Interval.Boundaries.LowerBoundary
 
         public TPoint Point { get; }
 
+        public int CompareToPoint(
+            TPoint point,
+            TPointComparer pointComparer)
+        {
+            return pointComparer.Compare(this.Point, point);
+        }
+
         public override bool Equals(
             object? obj)
         {
-            return obj is LowerClosedBoundary<TPoint> other && this.Equals(other);
+            return obj is LowerClosedBoundary<TPoint, TPointComparer> other && this.Equals(other);
         }
 
         public override int GetHashCode()
@@ -25,7 +35,7 @@ namespace Interval.Boundaries.LowerBoundary
         }
 
         public bool Equals(
-            LowerClosedBoundary<TPoint> other)
+            LowerClosedBoundary<TPoint, TPointComparer> other)
         {
             return this.Point
                 .Equals(other.Point);

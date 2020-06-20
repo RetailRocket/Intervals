@@ -1,13 +1,23 @@
 namespace Interval.Boundaries.LowerBoundary
 {
-    public readonly struct LowerInfinityBoundary<TPoint> :
-        ILowerBoundary<TPoint>
+    using System.Collections.Generic;
+
+    public readonly struct LowerInfinityBoundary<TPoint, TPointComparer> :
+        ILowerBoundary<TPoint, TPointComparer>
         where TPoint : notnull
+        where TPointComparer : IComparer<TPoint>, new()
     {
+        public int CompareToPoint(
+            TPoint point,
+            TPointComparer pointComparer)
+        {
+            return -1;
+        }
+
         public override bool Equals(
             object? obj)
         {
-            return obj is LowerInfinityBoundary<TPoint>;
+            return obj is LowerInfinityBoundary<TPoint, TPointComparer>;
         }
 
         public override int GetHashCode()

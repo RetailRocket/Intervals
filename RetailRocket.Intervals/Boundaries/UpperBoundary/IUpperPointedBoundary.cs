@@ -1,8 +1,11 @@
 namespace Interval.Boundaries.UpperBoundary
 {
-    public interface IUpperPointedBoundary<TPoint> :
-        IUpperBoundary<TPoint>
+    using System.Collections.Generic;
+
+    public interface IUpperPointedBoundary<TPoint, TPointComparer> :
+        IUpperBoundary<TPoint, TPointComparer>
         where TPoint : notnull
+        where TPointComparer : IComparer<TPoint>, new()
     {
     }
 }

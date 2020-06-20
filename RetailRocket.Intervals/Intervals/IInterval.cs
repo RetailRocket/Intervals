@@ -1,5 +1,6 @@
 namespace Interval.Intervals
 {
+    using System;
     using System.Collections.Generic;
 
     public interface IInterval<TPoint, TPointComparer>
@@ -10,6 +11,7 @@ namespace Interval.Intervals
             TPoint point,
             TPointComparer pointComparer);
 
-        public List<TPoint> GetListOfBoundaryPoint();
+        public IEnumerable<TResult> MapBoundaryPoints<TResult>(
+            Func<TPoint, TResult> map);
     }
 }

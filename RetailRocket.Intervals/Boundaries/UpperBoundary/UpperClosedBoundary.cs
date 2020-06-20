@@ -1,8 +1,11 @@
 namespace Interval.Boundaries.UpperBoundary
 {
-    public readonly struct UpperClosedBoundary<TPoint> :
-        IUpperPointedBoundary<TPoint>
+    using System.Collections.Generic;
+
+    public readonly struct UpperClosedBoundary<TPoint, TPointComparer> :
+        IUpperPointedBoundary<TPoint, TPointComparer>
         where TPoint : notnull
+        where TPointComparer : IComparer<TPoint>, new()
     {
         public UpperClosedBoundary(
             TPoint point)
@@ -12,10 +15,17 @@ namespace Interval.Boundaries.UpperBoundary
 
         public TPoint Point { get; }
 
+        public int CompareToPoint(
+            TPoint point,
+            TPointComparer pointComparer)
+        {
+            return pointComparer.Compare(this.Point, point);
+        }
+
         public override bool Equals(
             object? obj)
         {
-            return obj is UpperClosedBoundary<TPoint> other && this.Equals(other);
+            return obj is UpperClosedBoundary<TPoint, TPointComparer> other && this.Equals(other);
         }
 
         public override int GetHashCode()
@@ -25,7 +35,7 @@ namespace Interval.Boundaries.UpperBoundary
         }
 
         public bool Equals(
-            UpperClosedBoundary<TPoint> other)
+            UpperClosedBoundary<TPoint, TPointComparer> other)
         {
             return this.Point
                 .Equals(other.Point);

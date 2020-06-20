@@ -1,8 +1,11 @@
 namespace Interval.Boundaries.LowerBoundary
 {
-    public interface ILowerPointedBoundary<TPoint> :
-        ILowerBoundary<TPoint>
+    using System.Collections.Generic;
+
+    public interface ILowerPointedBoundary<TPoint, TPointComparer> :
+        ILowerBoundary<TPoint, TPointComparer>
         where TPoint : notnull
+        where TPointComparer : IComparer<TPoint>, new()
     {
     }
 }

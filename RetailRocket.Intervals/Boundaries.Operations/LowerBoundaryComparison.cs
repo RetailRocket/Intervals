@@ -7,31 +7,31 @@ namespace Interval.Boundaries.Operations
     public static class LowerBoundaryComparison
     {
         public static int Compare<TPoint, TPointComparer>(
-            this ILowerBoundary<TPoint> lowerBoundary,
-            ILowerBoundary<TPoint> otherLowerBoundary,
+            this ILowerBoundary<TPoint, TPointComparer> lowerBoundary,
+            ILowerBoundary<TPoint, TPointComparer> otherLowerBoundary,
             TPointComparer pointComparer)
             where TPoint : notnull
             where TPointComparer : IComparer<TPoint>, new() =>
             (lowerBoundary, otherLowerBoundary) switch
             {
-                (LowerClosedBoundary<TPoint> leftClosed, LowerClosedBoundary<TPoint> rightClosed) => leftClosed.Compare(rightClosed, pointComparer),
-                (LowerClosedBoundary<TPoint> leftClosed, LowerOpenBoundary<TPoint> rightOpen) => leftClosed.Compare(rightOpen, pointComparer),
-                (LowerClosedBoundary<TPoint> leftClosed, LowerInfinityBoundary<TPoint> rightInfinity) => leftClosed.Compare(rightInfinity, pointComparer),
+                (LowerClosedBoundary<TPoint, TPointComparer> leftClosed, LowerClosedBoundary<TPoint, TPointComparer> rightClosed) => leftClosed.Compare(rightClosed, pointComparer),
+                (LowerClosedBoundary<TPoint, TPointComparer> leftClosed, LowerOpenBoundary<TPoint, TPointComparer> rightOpen) => leftClosed.Compare(rightOpen, pointComparer),
+                (LowerClosedBoundary<TPoint, TPointComparer> leftClosed, LowerInfinityBoundary<TPoint, TPointComparer> rightInfinity) => leftClosed.Compare(rightInfinity, pointComparer),
 
-                (LowerOpenBoundary<TPoint> leftOpen, LowerOpenBoundary<TPoint> rightOpen) => leftOpen.Compare(rightOpen, pointComparer),
-                (LowerOpenBoundary<TPoint> leftOpen, LowerClosedBoundary<TPoint> rightClosed) => leftOpen.Compare(rightClosed, pointComparer),
-                (LowerOpenBoundary<TPoint> leftOpen, LowerInfinityBoundary<TPoint> rightInfinity) => leftOpen.Compare(rightInfinity, pointComparer),
+                (LowerOpenBoundary<TPoint, TPointComparer> leftOpen, LowerOpenBoundary<TPoint, TPointComparer> rightOpen) => leftOpen.Compare(rightOpen, pointComparer),
+                (LowerOpenBoundary<TPoint, TPointComparer> leftOpen, LowerClosedBoundary<TPoint, TPointComparer> rightClosed) => leftOpen.Compare(rightClosed, pointComparer),
+                (LowerOpenBoundary<TPoint, TPointComparer> leftOpen, LowerInfinityBoundary<TPoint, TPointComparer> rightInfinity) => leftOpen.Compare(rightInfinity, pointComparer),
 
-                (LowerInfinityBoundary<TPoint> leftInfinity, LowerInfinityBoundary<TPoint> rightInfinity) => leftInfinity.Compare(rightInfinity, pointComparer),
-                (LowerInfinityBoundary<TPoint> leftInfinity, LowerClosedBoundary<TPoint> rightClosed) => leftInfinity.Compare(rightClosed, pointComparer),
-                (LowerInfinityBoundary<TPoint> leftInfinity, LowerOpenBoundary<TPoint> rightOpen) => leftInfinity.Compare(rightOpen, pointComparer),
+                (LowerInfinityBoundary<TPoint, TPointComparer> leftInfinity, LowerInfinityBoundary<TPoint, TPointComparer> rightInfinity) => leftInfinity.Compare(rightInfinity, pointComparer),
+                (LowerInfinityBoundary<TPoint, TPointComparer> leftInfinity, LowerClosedBoundary<TPoint, TPointComparer> rightClosed) => leftInfinity.Compare(rightClosed, pointComparer),
+                (LowerInfinityBoundary<TPoint, TPointComparer> leftInfinity, LowerOpenBoundary<TPoint, TPointComparer> rightOpen) => leftInfinity.Compare(rightOpen, pointComparer),
 
                 _ => throw new ArgumentException(),
             };
 
         public static int Compare<TPoint, TPointComparer>(
-            this LowerClosedBoundary<TPoint> leftClosed,
-            LowerOpenBoundary<TPoint> rightOpen,
+            this LowerClosedBoundary<TPoint, TPointComparer> leftClosed,
+            LowerOpenBoundary<TPoint, TPointComparer> rightOpen,
             TPointComparer pointComparer)
             where TPoint : notnull
             where TPointComparer : IComparer<TPoint>, new()
@@ -41,8 +41,8 @@ namespace Interval.Boundaries.Operations
         }
 
         public static int Compare<TPoint, TPointComparer>(
-            this LowerClosedBoundary<TPoint> leftClosed,
-            LowerClosedBoundary<TPoint> rightClosed,
+            this LowerClosedBoundary<TPoint, TPointComparer> leftClosed,
+            LowerClosedBoundary<TPoint, TPointComparer> rightClosed,
             TPointComparer pointComparer)
             where TPoint : notnull
             where TPointComparer : IComparer<TPoint>, new()
@@ -51,8 +51,8 @@ namespace Interval.Boundaries.Operations
         }
 
         public static int Compare<TPoint, TPointComparer>(
-            this LowerClosedBoundary<TPoint> leftClosed,
-            LowerInfinityBoundary<TPoint> rightClosed,
+            this LowerClosedBoundary<TPoint, TPointComparer> leftClosed,
+            LowerInfinityBoundary<TPoint, TPointComparer> rightClosed,
             TPointComparer pointComparer)
             where TPoint : notnull
             where TPointComparer : IComparer<TPoint>, new()
@@ -61,8 +61,8 @@ namespace Interval.Boundaries.Operations
         }
 
         public static int Compare<TPoint, TPointComparer>(
-            this LowerOpenBoundary<TPoint> leftClosed,
-            LowerOpenBoundary<TPoint> rightOpen,
+            this LowerOpenBoundary<TPoint, TPointComparer> leftClosed,
+            LowerOpenBoundary<TPoint, TPointComparer> rightOpen,
             TPointComparer pointComparer)
             where TPoint : notnull
             where TPointComparer : IComparer<TPoint>, new()
@@ -71,8 +71,8 @@ namespace Interval.Boundaries.Operations
         }
 
         public static int Compare<TPoint, TPointComparer>(
-            this LowerOpenBoundary<TPoint> leftClosed,
-            LowerClosedBoundary<TPoint> rightClosed,
+            this LowerOpenBoundary<TPoint, TPointComparer> leftClosed,
+            LowerClosedBoundary<TPoint, TPointComparer> rightClosed,
             TPointComparer pointComparer)
             where TPoint : notnull
             where TPointComparer : IComparer<TPoint>, new()
@@ -82,8 +82,8 @@ namespace Interval.Boundaries.Operations
         }
 
         public static int Compare<TPoint, TPointComparer>(
-            this LowerOpenBoundary<TPoint> leftClosed,
-            LowerInfinityBoundary<TPoint> rightClosed,
+            this LowerOpenBoundary<TPoint, TPointComparer> leftClosed,
+            LowerInfinityBoundary<TPoint, TPointComparer> rightClosed,
             TPointComparer pointComparer)
             where TPoint : notnull
             where TPointComparer : IComparer<TPoint>, new()
@@ -92,8 +92,8 @@ namespace Interval.Boundaries.Operations
         }
 
         public static int Compare<TPoint, TPointComparer>(
-            this LowerInfinityBoundary<TPoint> leftClosed,
-            LowerOpenBoundary<TPoint> rightOpen,
+            this LowerInfinityBoundary<TPoint, TPointComparer> leftClosed,
+            LowerOpenBoundary<TPoint, TPointComparer> rightOpen,
             TPointComparer pointComparer)
             where TPoint : notnull
             where TPointComparer : IComparer<TPoint>, new()
@@ -102,8 +102,8 @@ namespace Interval.Boundaries.Operations
         }
 
         public static int Compare<TPoint, TPointComparer>(
-            this LowerInfinityBoundary<TPoint> leftClosed,
-            LowerClosedBoundary<TPoint> rightClosed,
+            this LowerInfinityBoundary<TPoint, TPointComparer> leftClosed,
+            LowerClosedBoundary<TPoint, TPointComparer> rightClosed,
             TPointComparer pointComparer)
             where TPoint : notnull
             where TPointComparer : IComparer<TPoint>, new()
@@ -112,8 +112,8 @@ namespace Interval.Boundaries.Operations
         }
 
         public static int Compare<TPoint, TPointComparer>(
-            this LowerInfinityBoundary<TPoint> leftClosed,
-            LowerInfinityBoundary<TPoint> rightClosed,
+            this LowerInfinityBoundary<TPoint, TPointComparer> leftClosed,
+            LowerInfinityBoundary<TPoint, TPointComparer> rightClosed,
             TPointComparer pointComparer)
             where TPoint : notnull
             where TPointComparer : IComparer<TPoint>, new()

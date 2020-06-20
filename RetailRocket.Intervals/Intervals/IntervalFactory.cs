@@ -17,30 +17,30 @@ namespace Interval.Intervals
     public static class IntervalFactory
     {
         public static IInterval<TPoint, TPointComparer> Build<TPoint, TPointComparer>(
-            ILowerBoundary<TPoint> lowerBoundary,
-            IUpperBoundary<TPoint> upperBoundary,
+            ILowerBoundary<TPoint, TPointComparer> lowerBoundary,
+            IUpperBoundary<TPoint, TPointComparer> upperBoundary,
             TPointComparer pointComparer)
             where TPoint : notnull
             where TPointComparer : IComparer<TPoint>, new() =>
             (lowerBoundary, upperBoundary) switch
             {
-                (LowerClosedBoundary<TPoint> lowerClosed, UpperClosedBoundary<TPoint> upperClosed) => Build(lowerClosed, upperClosed, pointComparer),
-                (LowerClosedBoundary<TPoint> lowerClosed, UpperOpenBoundary<TPoint> upperOpen) => Build(lowerClosed, upperOpen, pointComparer),
-                (LowerClosedBoundary<TPoint> lowerClosed, UpperInfinityBoundary<TPoint> _) => new ClosedInfinityInterval<TPoint, TPointComparer>(lowerClosed),
+                (LowerClosedBoundary<TPoint, TPointComparer> lowerClosed, UpperClosedBoundary<TPoint, TPointComparer> upperClosed) => Build(lowerClosed, upperClosed, pointComparer),
+                (LowerClosedBoundary<TPoint, TPointComparer> lowerClosed, UpperOpenBoundary<TPoint, TPointComparer> upperOpen) => Build(lowerClosed, upperOpen, pointComparer),
+                (LowerClosedBoundary<TPoint, TPointComparer> lowerClosed, UpperInfinityBoundary<TPoint, TPointComparer> _) => new ClosedInfinityInterval<TPoint, TPointComparer>(lowerClosed),
 
-                (LowerOpenBoundary<TPoint> lowerOpen, UpperClosedBoundary<TPoint> upperClosed) => Build(lowerOpen, upperClosed, pointComparer),
-                (LowerOpenBoundary<TPoint> lowerOpen, UpperOpenBoundary<TPoint> upperOpen) => Build(lowerOpen, upperOpen, pointComparer),
-                (LowerOpenBoundary<TPoint> lowerOpen, UpperInfinityBoundary<TPoint> _) => new OpenInfinityInterval<TPoint, TPointComparer>(lowerOpen),
+                (LowerOpenBoundary<TPoint, TPointComparer> lowerOpen, UpperClosedBoundary<TPoint, TPointComparer> upperClosed) => Build(lowerOpen, upperClosed, pointComparer),
+                (LowerOpenBoundary<TPoint, TPointComparer> lowerOpen, UpperOpenBoundary<TPoint, TPointComparer> upperOpen) => Build(lowerOpen, upperOpen, pointComparer),
+                (LowerOpenBoundary<TPoint, TPointComparer> lowerOpen, UpperInfinityBoundary<TPoint, TPointComparer> _) => new OpenInfinityInterval<TPoint, TPointComparer>(lowerOpen),
 
-                (LowerInfinityBoundary<TPoint> lowerInfinity, UpperClosedBoundary<TPoint> upperClosed) => new InfinityClosedInterval<TPoint, TPointComparer>(upperClosed),
-                (LowerInfinityBoundary<TPoint> lowerInfinity, UpperOpenBoundary<TPoint> upperOpen) => new InfinityOpenInterval<TPoint, TPointComparer>(upperOpen),
-                (LowerInfinityBoundary<TPoint> _, UpperInfinityBoundary<TPoint> _) => default(InfinityInterval<TPoint, TPointComparer>),
+                (LowerInfinityBoundary<TPoint, TPointComparer> lowerInfinity, UpperClosedBoundary<TPoint, TPointComparer> upperClosed) => new InfinityClosedInterval<TPoint, TPointComparer>(upperClosed),
+                (LowerInfinityBoundary<TPoint, TPointComparer> lowerInfinity, UpperOpenBoundary<TPoint, TPointComparer> upperOpen) => new InfinityOpenInterval<TPoint, TPointComparer>(upperOpen),
+                (LowerInfinityBoundary<TPoint, TPointComparer> _, UpperInfinityBoundary<TPoint, TPointComparer> _) => default(InfinityInterval<TPoint, TPointComparer>),
                 _ => throw new ArgumentException()
             };
 
         public static IInterval<TPoint, TPointComparer> Build<TPoint, TPointComparer>(
-            LowerClosedBoundary<TPoint> lowerClosed,
-            UpperClosedBoundary<TPoint> upperClosed,
+            LowerClosedBoundary<TPoint, TPointComparer> lowerClosed,
+            UpperClosedBoundary<TPoint, TPointComparer> upperClosed,
             TPointComparer pointComparer)
             where TPoint : notnull
             where TPointComparer : IComparer<TPoint>, new()
@@ -55,8 +55,8 @@ namespace Interval.Intervals
         }
 
         public static IInterval<TPoint, TPointComparer> Build<TPoint, TPointComparer>(
-            LowerClosedBoundary<TPoint> lowerClosed,
-            UpperOpenBoundary<TPoint> upperOpen,
+            LowerClosedBoundary<TPoint, TPointComparer> lowerClosed,
+            UpperOpenBoundary<TPoint, TPointComparer> upperOpen,
             TPointComparer pointComparer)
             where TPoint : notnull
             where TPointComparer : IComparer<TPoint>, new()
@@ -71,8 +71,8 @@ namespace Interval.Intervals
         }
 
         public static IInterval<TPoint, TPointComparer> Build<TPoint, TPointComparer>(
-            LowerOpenBoundary<TPoint> lowerOpen,
-            UpperOpenBoundary<TPoint> upperClosed,
+            LowerOpenBoundary<TPoint, TPointComparer> lowerOpen,
+            UpperOpenBoundary<TPoint, TPointComparer> upperClosed,
             TPointComparer pointComparer)
             where TPoint : notnull
             where TPointComparer : IComparer<TPoint>, new()
@@ -87,8 +87,8 @@ namespace Interval.Intervals
         }
 
         public static IInterval<TPoint, TPointComparer> Build<TPoint, TPointComparer>(
-            LowerOpenBoundary<TPoint> lowerOpen,
-            UpperClosedBoundary<TPoint> upperClosed,
+            LowerOpenBoundary<TPoint, TPointComparer> lowerOpen,
+            UpperClosedBoundary<TPoint, TPointComparer> upperClosed,
             TPointComparer pointComparer)
             where TPoint : notnull
             where TPointComparer : IComparer<TPoint>, new()

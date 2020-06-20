@@ -9,7 +9,7 @@ namespace Interval.Intervals.Operations.BoundaryIntervals
 
     public static class GetUpperBoundary
     {
-        public static IUpperBoundary<TPoint> UpperBoundary<TPoint, TPointComparer>(
+        public static IUpperBoundary<TPoint, TPointComparer> UpperBoundary<TPoint, TPointComparer>(
             this IBoundaryInterval<TPoint, TPointComparer> boundaryInterval)
             where TPoint : notnull
             where TPointComparer : IComparer<TPoint>, new() => boundaryInterval switch

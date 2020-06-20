@@ -11,16 +11,16 @@ namespace Interval.Intervals.ClosedOpenInterval
         where TPointComparer : IComparer<TPoint>, new()
     {
         public ClosedOpenInterval(
-            LowerClosedBoundary<TPoint> lowerBoundary,
-            UpperOpenBoundary<TPoint> upperBoundary)
+            LowerClosedBoundary<TPoint, TPointComparer> lowerBoundary,
+            UpperOpenBoundary<TPoint, TPointComparer> upperBoundary)
         {
             this.LowerBoundary = lowerBoundary;
             this.UpperBoundary = upperBoundary;
         }
 
-        public LowerClosedBoundary<TPoint> LowerBoundary { get; }
+        public LowerClosedBoundary<TPoint, TPointComparer> LowerBoundary { get; }
 
-        public UpperOpenBoundary<TPoint> UpperBoundary { get; }
+        public UpperOpenBoundary<TPoint, TPointComparer> UpperBoundary { get; }
 
         public bool Contains(
             TPoint point,
@@ -47,13 +47,11 @@ namespace Interval.Intervals.ClosedOpenInterval
             return this.LowerBoundary.Equals(other.LowerBoundary) && this.UpperBoundary.Equals(other.UpperBoundary);
         }
 
-        public List<TPoint> GetListOfBoundaryPoint()
+        public IEnumerable<TResult> MapBoundaryPoints<TResult>(
+            Func<TPoint, TResult> map)
         {
-            return new List<TPoint>
-            {
-                this.LowerBoundary.Point,
-                this.UpperBoundary.Point,
-            };
+            yield return map(this.LowerBoundary.Point);
+            yield return map(this.UpperBoundary.Point);
         }
     }
 }

@@ -2,6 +2,7 @@ namespace Interval.Intervals.EmptyInterval
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     public class EmptyInterval<TPoint, TPointComparer> :
         IInterval<TPoint, TPointComparer>
@@ -30,6 +31,12 @@ namespace Interval.Intervals.EmptyInterval
         public List<TPoint> GetListOfBoundaryPoint()
         {
             return new List<TPoint> { };
+        }
+
+        public IEnumerable<TResult> MapBoundaryPoints<TResult>(
+            Func<TPoint, TResult> map)
+        {
+            return Enumerable.Empty<TResult>();
         }
     }
 }

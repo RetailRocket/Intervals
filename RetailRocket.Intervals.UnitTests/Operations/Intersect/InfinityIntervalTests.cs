@@ -19,8 +19,8 @@ namespace Interval.UnitTests.Operations.Intersect
             int upperBoundaryPoint)
         {
             var leftInterval = IntervalFactory.Build(
-                new LowerClosedBoundary<int>(lowerBoundaryPoint),
-                new UpperClosedBoundary<int>(upperBoundaryPoint),
+                new LowerClosedBoundary<int, IntComparer>(lowerBoundaryPoint),
+                new UpperClosedBoundary<int, IntComparer>(upperBoundaryPoint),
                 pointComparer: new IntComparer());
 
             InfinityInterval<int, IntComparer> rightInterval = default;
@@ -43,8 +43,8 @@ namespace Interval.UnitTests.Operations.Intersect
             int upperBoundaryPoint)
         {
             var leftInterval = IntervalFactory.Build(
-                new LowerOpenBoundary<int>(lowerBoundaryPoint),
-                new UpperOpenBoundary<int>(upperBoundaryPoint),
+                new LowerOpenBoundary<int, IntComparer>(lowerBoundaryPoint),
+                new UpperOpenBoundary<int, IntComparer>(upperBoundaryPoint),
                 pointComparer: new IntComparer());
 
             InfinityInterval<int, IntComparer> rightInterval = default;

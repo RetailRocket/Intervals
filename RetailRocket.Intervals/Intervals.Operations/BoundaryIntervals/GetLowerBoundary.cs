@@ -9,7 +9,7 @@ namespace Interval.Intervals.Operations.BoundaryIntervals
 
     public static class GetLowerBoundary
     {
-        public static ILowerBoundary<TPoint> LowerBoundary<TPoint, TPointComparer>(
+        public static ILowerBoundary<TPoint, TPointComparer> LowerBoundary<TPoint, TPointComparer>(
             this IBoundaryInterval<TPoint, TPointComparer> boundaryInterval)
             where TPoint : notnull
             where TPointComparer : IComparer<TPoint>, new() => boundaryInterval switch

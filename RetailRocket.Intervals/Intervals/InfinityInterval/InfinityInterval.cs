@@ -1,7 +1,9 @@
 namespace Interval.Intervals.InfinityInterval
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
     using global::Interval.Boundaries.LowerBoundary;
     using global::Interval.Boundaries.UpperBoundary;
 
@@ -10,9 +12,9 @@ namespace Interval.Intervals.InfinityInterval
         where TPoint : notnull
         where TPointComparer : IComparer<TPoint>, new()
     {
-        public LowerInfinityBoundary<TPoint> LowerBoundary { get; }
+        public LowerInfinityBoundary<TPoint, TPointComparer> LowerBoundary { get; }
 
-        public UpperInfinityBoundary<TPoint> UpperBoundary { get; }
+        public UpperInfinityBoundary<TPoint, TPointComparer> UpperBoundary { get; }
 
         public bool Contains(
             TPoint point,
@@ -21,9 +23,10 @@ namespace Interval.Intervals.InfinityInterval
             return true;
         }
 
-        public List<TPoint> GetListOfBoundaryPoint()
+        public IEnumerable<TResult> MapBoundaryPoints<TResult>(
+            Func<TPoint, TResult> map)
         {
-            return new List<TPoint> { };
+            return Enumerable.Empty<TResult>();
         }
 
         public override bool Equals(
