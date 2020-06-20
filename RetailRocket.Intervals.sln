@@ -4,12 +4,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetailRocket.Intervals", "R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetailRocket.Intervals.UnitTests", "RetailRocket.Intervals.UnitTests\RetailRocket.Intervals.UnitTests.csproj", "{8CED7CE8-C77B-4CBA-A352-4BD7168A31EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetailRocket.CenteredIntervalTree", "RetailRocket.CenteredIntervalTree\RetailRocket.CenteredIntervalTree.csproj", "{511636F0-E45A-41F2-816A-F0963F6E3781}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetailRocket.OneOf", "RetailRocket.OneOf\RetailRocket.OneOf.csproj", "{F9ED89EE-8D36-457E-B50F-DF92ECFE979A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetailRocket.CenteredIntervalTree.UnitTests", "RetailRocket.CenteredIntervalTree.UnitTests\RetailRocket.CenteredIntervalTree.UnitTests.csproj", "{1DEBE65D-B9B5-4001-9085-903742ED4F33}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,17 +18,5 @@ Global
 		{8CED7CE8-C77B-4CBA-A352-4BD7168A31EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CED7CE8-C77B-4CBA-A352-4BD7168A31EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CED7CE8-C77B-4CBA-A352-4BD7168A31EC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{511636F0-E45A-41F2-816A-F0963F6E3781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{511636F0-E45A-41F2-816A-F0963F6E3781}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{511636F0-E45A-41F2-816A-F0963F6E3781}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{511636F0-E45A-41F2-816A-F0963F6E3781}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F9ED89EE-8D36-457E-B50F-DF92ECFE979A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F9ED89EE-8D36-457E-B50F-DF92ECFE979A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F9ED89EE-8D36-457E-B50F-DF92ECFE979A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F9ED89EE-8D36-457E-B50F-DF92ECFE979A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1DEBE65D-B9B5-4001-9085-903742ED4F33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1DEBE65D-B9B5-4001-9085-903742ED4F33}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1DEBE65D-B9B5-4001-9085-903742ED4F33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1DEBE65D-B9B5-4001-9085-903742ED4F33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
