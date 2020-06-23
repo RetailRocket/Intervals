@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <package>
     <metadata>
-        <id>RetailRocket.RetailRocket.Intervalss</id>
+        <id>RetailRocket.Intervals</id>
         <authors>Andrey Chizh</authors>
         <owners>Andrey Chizh</owners>
         <version>0.0.1</version>
-        <projectUrl>https://github.com/RetailRocket/RetailRocket.Intervalss</projectUrl>
+        <projectUrl>https://github.com/RetailRocket/RetailRocket.Intervals</projectUrl>
         <license type="file">LICENSE.txt</license>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Generic interval type with low and upper boundaries types. Each boundary can be closed, open or infinity. Boundary has one method witch allow to compare it with point. Additionaly to this labrary there is labrary with operations.</description>
         <copyright>Andrey Chizh</copyright>
-        <repository type="git" url="https://github.com/RetailRocket/RetailRocket.Intervalss" />
+        <repository type="git" url="https://github.com/RetailRocket/RetailRocket.Intervals" />
         <dependencies>
             <group targetFramework="netcoreapp3.1" />
         </dependencies>

@@ -1,14 +1,17 @@
 namespace Interval.Intervals
 {
-    using System;
     using System.Collections.Generic;
 
-    public interface IInterval<TPoint, TPointComparer>
+    public class EmptyInterval<TPoint, TPointComparer> :
+        IInterval<TPoint, TPointComparer>
         where TPoint : notnull
         where TPointComparer : IComparer<TPoint>, new()
     {
         public bool Contains(
             TPoint point,
-            TPointComparer pointComparer);
+            TPointComparer pointComparer)
+        {
+            return false;
+        }
     }
 }

@@ -7,5 +7,6 @@ namespace Interval.Boundaries.LowerBoundary
         where TPoint : notnull
         where TPointComparer : IComparer<TPoint>, new()
     {
+        TPoint Point { get; }
     }
 }

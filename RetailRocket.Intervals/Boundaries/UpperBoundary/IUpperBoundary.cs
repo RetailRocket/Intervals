@@ -9,5 +9,9 @@ namespace Interval.Boundaries.UpperBoundary
         int CompareToPoint(
             TPoint point,
             TPointComparer pointComparer);
+
+        bool IsBoundaryPoint(
+            TPoint point,
+            TPointComparer pointComparer);
     }
 }

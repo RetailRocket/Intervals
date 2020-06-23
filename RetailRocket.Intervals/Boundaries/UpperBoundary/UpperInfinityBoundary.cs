@@ -3,7 +3,7 @@ namespace Interval.Boundaries.UpperBoundary
     using System.Collections.Generic;
 
     public readonly struct UpperInfinityBoundary<TPoint, TPointComparer> :
-        IUpperPointedBoundary<TPoint, TPointComparer>
+        IUpperBoundary<TPoint, TPointComparer>
         where TPoint : notnull
         where TPointComparer : IComparer<TPoint>, new()
     {
@@ -12,6 +12,13 @@ namespace Interval.Boundaries.UpperBoundary
             TPointComparer pointComparer)
         {
             return 1;
+        }
+
+        public bool IsBoundaryPoint(
+            TPoint point,
+            TPointComparer pointComparer)
+        {
+            return false;
         }
 
         public override bool Equals(

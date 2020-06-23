@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetailRocket.Intervals", "R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetailRocket.Intervals.UnitTests", "RetailRocket.Intervals.UnitTests\RetailRocket.Intervals.UnitTests.csproj", "{8CED7CE8-C77B-4CBA-A352-4BD7168A31EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{C16DB235-18EF-48A8-9F65-31A5DB886A8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{8CED7CE8-C77B-4CBA-A352-4BD7168A31EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CED7CE8-C77B-4CBA-A352-4BD7168A31EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CED7CE8-C77B-4CBA-A352-4BD7168A31EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C16DB235-18EF-48A8-9F65-31A5DB886A8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C16DB235-18EF-48A8-9F65-31A5DB886A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C16DB235-18EF-48A8-9F65-31A5DB886A8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C16DB235-18EF-48A8-9F65-31A5DB886A8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -23,6 +23,13 @@ namespace Interval.Boundaries.LowerBoundary
             return comparison == 0 ? 1 : comparison;
         }
 
+        public bool IsBoundaryPoint(
+            TPoint point,
+            TPointComparer pointComparer)
+        {
+            return pointComparer.Compare(this.Point, point) == 0;
+        }
+
         public override bool Equals(
             object? obj)
         {

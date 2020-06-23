@@ -6,7 +6,7 @@ namespace Interval.Boundaries.UpperBoundary
         IUpperPointedBoundary<TPoint, TPointComparer>
         where TPoint : notnull
         where TPointComparer : IComparer<TPoint>, new()
-        {
+    {
         public UpperOpenBoundary(
             TPoint point)
         {
@@ -21,6 +21,13 @@ namespace Interval.Boundaries.UpperBoundary
         {
             var comparison = pointComparer.Compare(this.Point, point);
             return comparison == 0 ? -1 : comparison;
+        }
+
+        public bool IsBoundaryPoint(
+            TPoint point,
+            TPointComparer pointComparer)
+        {
+            return pointComparer.Compare(this.Point, point) == 0;
         }
 
         public override bool Equals(

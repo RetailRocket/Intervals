@@ -14,6 +14,13 @@ namespace Interval.Boundaries.LowerBoundary
             return -1;
         }
 
+        public bool IsBoundaryPoint(
+            TPoint point,
+            TPointComparer pointComparer)
+        {
+            return false;
+        }
+
         public override bool Equals(
             object? obj)
         {
