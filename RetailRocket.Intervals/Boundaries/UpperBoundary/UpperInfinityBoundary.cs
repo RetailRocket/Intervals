@@ -2,7 +2,7 @@ namespace Interval.Boundaries.UpperBoundary
 {
     using System.Collections.Generic;
 
-    public readonly struct UpperInfinityBoundary<TPoint, TPointComparer> :
+    public class UpperInfinityBoundary<TPoint, TPointComparer> :
         IUpperBoundary<TPoint, TPointComparer>
         where TPoint : notnull
         where TPointComparer : IComparer<TPoint>, new()

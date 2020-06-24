@@ -1,37 +1,29 @@
 namespace Interval.Intervals.Operations
 {
     using System.Collections.Generic;
-    using Interval.Boundaries.LowerBoundary;
     using Interval.Boundaries.Operations;
-    using Interval.Boundaries.UpperBoundary;
     using Interval.Intervals.Factories;
 
     public static class IntervalIntersection
     {
-
-        public static IInterval<TPoint, TPointComparer> Intersect<TPoint, TPointComparer, TLowerBoundary, TUpperBoundary>(
+        public static IInterval<TPoint, TPointComparer> Intersect<TPoint, TPointComparer>(
             this IInterval<TPoint, TPointComparer> interval,
             IInterval<TPoint, TPointComparer> other,
             TPointComparer pointComparer)
             where TPoint : notnull
-            where TPointComparer : IComparer<TPoint>, new()
-            where TLowerBoundary : ILowerBoundary<TPoint, TPointComparer>
-            where TUpperBoundary : IUpperBoundary<TPoint, TPointComparer> =>
+            where TPointComparer : IComparer<TPoint>, new() =>
             (interval, other) switch
             {
-                (IBoundaryInterval<TPoint, TPointComparer, TLowerBoundary, TUpperBoundary> left, IBoundaryInterval<TPoint, TPointComparer, TLowerBoundary, TUpperBoundary> right) =>
-                left.Intersect(right, pointComparer),
+                (BoundaryInterval<TPoint, TPointComparer> left, BoundaryInterval<TPoint, TPointComparer> right) => left.Intersect(right, pointComparer),
                 _ => new EmptyInterval<TPoint, TPointComparer>()
             };
 
-        public static IInterval<TPoint, TPointComparer> Intersect<TPoint, TPointComparer, TLowerBoundary, TUpperBoundary>(
-            this IBoundaryInterval<TPoint, TPointComparer, TLowerBoundary, TUpperBoundary> interval,
-            IBoundaryInterval<TPoint, TPointComparer, TLowerBoundary, TUpperBoundary> otherInterval,
+        public static IInterval<TPoint, TPointComparer> Intersect<TPoint, TPointComparer>(
+            this BoundaryInterval<TPoint, TPointComparer> interval,
+            BoundaryInterval<TPoint, TPointComparer> otherInterval,
             TPointComparer pointComparer)
             where TPoint : notnull
             where TPointComparer : IComparer<TPoint>, new()
-            where TLowerBoundary : ILowerBoundary<TPoint, TPointComparer>
-            where TUpperBoundary : IUpperBoundary<TPoint, TPointComparer>
         {
             var maxLowerBoundary = interval.LowerBoundary
                 .Compare(

@@ -2,7 +2,6 @@ namespace Interval.UnitTests.Operations.Intersect
 {
     using Interval.Boundaries.LowerBoundary;
     using Interval.Boundaries.UpperBoundary;
-    using Interval.Intervals;
     using Interval.Intervals.Factories;
     using Interval.Intervals.Operations;
     using Xunit;
@@ -23,9 +22,9 @@ namespace Interval.UnitTests.Operations.Intersect
                 new UpperClosedBoundary<int, IntComparer>(upperBoundaryPoint),
                 pointComparer: new IntComparer());
 
-            var rightInterval = (IInterval<int, IntComparer>)IntervalFactory.InfinityInterval<int, IntComparer>();
+            var rightInterval = IntervalFactory.InfinityInterval<int, IntComparer>();
 
-            var intersection = leftInterval.Intersect<int, IntComparer, ILowerBoundary<int, IntComparer>, IUpperBoundary<int, IntComparer>>(
+            var intersection = leftInterval.Intersect(
                 rightInterval,
                 pointComparer: new IntComparer());
 
@@ -47,9 +46,9 @@ namespace Interval.UnitTests.Operations.Intersect
                 new UpperOpenBoundary<int, IntComparer>(upperBoundaryPoint),
                 pointComparer: new IntComparer());
 
-            var rightInterval = (IInterval<int, IntComparer>)IntervalFactory.InfinityInterval<int, IntComparer>();
+            var rightInterval = IntervalFactory.InfinityInterval<int, IntComparer>();
 
-            var intersection = leftInterval.Intersect<int, IntComparer, ILowerBoundary<int, IntComparer>, IUpperBoundary<int, IntComparer>>(
+            var intersection = leftInterval.Intersect<int, IntComparer>(
                 rightInterval,
                 pointComparer: new IntComparer());
 

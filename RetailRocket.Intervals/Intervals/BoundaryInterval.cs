@@ -1,30 +1,26 @@
 namespace Interval.Intervals
 {
+    using System;
     using System.Collections.Generic;
-    using System.Net.NetworkInformation;
     using Interval.Boundaries.LowerBoundary;
-    using Interval.Boundaries.Operations;
     using Interval.Boundaries.UpperBoundary;
-    using Interval.Intervals.Factories;
 
-    public class BoundaryInterval<TPoint, TPointComparer, TLowerBoundary, TUpperBoundary> :
+    public class BoundaryInterval<TPoint, TPointComparer> :
         IInterval<TPoint, TPointComparer>
         where TPoint : notnull
         where TPointComparer : IComparer<TPoint>, new()
-        where TLowerBoundary : ILowerBoundary<TPoint, TPointComparer>
-        where TUpperBoundary : IUpperBoundary<TPoint, TPointComparer>
     {
         public BoundaryInterval(
-            TLowerBoundary lowerBoundary,
-            TUpperBoundary upperBoundary)
+            ILowerBoundary<TPoint, TPointComparer> lowerBoundary,
+            IUpperBoundary<TPoint, TPointComparer> upperBoundary)
         {
             this.LowerBoundary = lowerBoundary;
             this.UpperBoundary = upperBoundary;
         }
 
-        public TLowerBoundary LowerBoundary { get; }
+        public ILowerBoundary<TPoint, TPointComparer> LowerBoundary { get; }
 
-        public TUpperBoundary UpperBoundary { get; }
+        public IUpperBoundary<TPoint, TPointComparer> UpperBoundary { get; }
 
         public bool Contains(
             TPoint point,
@@ -44,6 +40,26 @@ namespace Interval.Intervals
         {
             return this.LowerBoundary.IsBoundaryPoint(point, pointComparer) ||
                    this.UpperBoundary.IsBoundaryPoint(point, pointComparer);
+        }
+
+        public override bool Equals(
+            object? obj)
+        {
+            return obj is BoundaryInterval<TPoint, TPointComparer> other && this.Equals(other);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(
+                this.LowerBoundary.GetHashCode(),
+                this.UpperBoundary.GetHashCode());
+        }
+
+        public bool Equals(
+            BoundaryInterval<TPoint, TPointComparer> boundaryInterval)
+        {
+            return this.LowerBoundary.Equals(boundaryInterval.LowerBoundary) &&
+                   this.UpperBoundary.Equals(boundaryInterval.UpperBoundary);
         }
     }
 }
